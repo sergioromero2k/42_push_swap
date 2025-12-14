@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/14 02:58:43 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2025/12/14 03:47:26 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 
 }						t_stack_node;
+
+t_stack_node	initializate_stack_a(int argc, char **argv);
+int	check_arg_formater(char *str, long *num);
+void	handle_error(void);
+int	check_duplicates(t_stack_node *a);
 
 #endif

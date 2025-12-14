@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:24:18 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/14 03:21:02 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2025/12/14 03:47:29 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,22 @@ void	handle_error(void)
 	write(STDERR_FILENO, "Error\n", 6);
 	return (EXIT_FAILURE);
 }
-void	check_duplicates(int count, char **arr)
+int	check_duplicates(t_stack_node *a)
 {
-	int i;
-	int j;
+	t_stack_node	*current;
+	t_stack_node	*check;
 
-	i = 0;
-	while (i < count)
+	current = a;
+	while (current)
 	{
-		j = i + 1;
-		while (j < count)
+		check = current->next;
+		while (check)
 		{
-			if (*arr[i] = *arr[j])
+			if (current->next == check->next)
 				handle_error();
-			j++;
+			check = check->next;
 		}
-		i++;
+		current = current->next;
 	}
+	return (EXIT_SUCCESS);
 }
