@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/14 02:58:43 by sergio-alej      ###   ########.fr       */
+/*   Created: 2025/12/14 03:04:15 by sergio-alej       #+#    #+#             */
+/*   Updated: 2025/12/14 03:19:03 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "libft.h"
-# include <limits.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-typedef struct s_stack_node
+long	ft_atol(const char *ptr)
 {
-	int					value;
-	int					index;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
+	long result = 0;
+	int sign = 1;
 
-}						t_stack_node;
-
-#endif
+	while (*ptr == ' ' || (*ptr >= 9 && *ptr <= 13))
+		ptr++;
+	if (*ptr == '-' || *ptr == '+')
+	{
+		if (*ptr == '-')
+			sign *= -1;
+		ptr++;
+	}
+	while (*ptr >= '0' && *ptr <= '9')
+	{
+		result = result * 10 + (*ptr - '0');
+		ptr++;
+	}
+	return (sign * result);
+}

@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/14 02:58:43 by sergio-alej      ###   ########.fr       */
+/*   Created: 2025/09/29 22:36:16 by sergio-alej       #+#    #+#             */
+/*   Updated: 2025/10/02 21:13:33 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft.h"
-# include <limits.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-typedef struct s_stack_node
+int	ft_isalnum(int c)
 {
-	int					value;
-	int					index;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (42);
+	return (0);
+}
+/* int main(void){
 
-}						t_stack_node;
-
-#endif
+} */
+/* checks for an alphanumeric character; 
+it is equivalent to (isalpha(c) o isdigit(c)). */

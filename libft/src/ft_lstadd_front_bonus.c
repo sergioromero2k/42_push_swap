@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/14 02:58:43 by sergio-alej      ###   ########.fr       */
+/*   Created: 2025/10/13 07:07:17 by sergio-alej       #+#    #+#             */
+/*   Updated: 2025/10/13 20:04:13 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft.h"
-# include <limits.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-typedef struct s_stack_node
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int					value;
-	int					index;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
+	new->next = *lst;
+	*lst = new;
+}
 
-}						t_stack_node;
+/* int main(void){
+	t_list *nodo=NULL;
 
-#endif
+
+
+
+} */

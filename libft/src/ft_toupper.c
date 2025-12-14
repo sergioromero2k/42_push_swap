@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/14 02:58:43 by sergio-alej      ###   ########.fr       */
+/*   Created: 2025/09/30 20:21:29 by sergio-alej       #+#    #+#             */
+/*   Updated: 2025/10/02 20:59:36 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft.h"
-# include <limits.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-typedef struct s_stack_node
+// Convierte un caracter minusculas a su equivalente mauscula,
+// y si el caracter ya es mayuscula o no es una letra,
+// devuelve el carácter sin cambios.
+
+int	ft_toupper(int c)
 {
-	int					value;
-	int					index;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
+	if (c >= 'a' && c <= 'z')
+		c = c - 32;
+	return (c);
+}
 
-}						t_stack_node;
+/* int main(void){
+	char letter='a';
 
-#endif
+	printf("%c",toupper(letter));
+} */
