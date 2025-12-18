@@ -1,12 +1,12 @@
 This project has been created as part of the 42 curriculum by serromer
 
-# 🌀 Guía Completa para el Proyecto Push_swap
+#  Guía Completa para el Proyecto Push_swap
 
 El proyecto **Push_swap** es un desafío algorítmico fundamental en el plan de estudios de 42, centrado en la clasificación de datos con restricciones. Es una excelente oportunidad para sumergirte en algoritmos de clasificación y el concepto de complejidad.
 
 ---
 
-## 1. 📚 Resumen del Proyecto y Objetivo
+## 1.  Resumen del Proyecto y Objetivo
 
 ### Objetivo Principal
 Escribir un programa en C llamado `push_swap` que calcule y muestre la **secuencia más corta de instrucciones** necesarias para ordenar una lista de enteros en la **pila a** en orden ascendente, con el número más pequeño en la parte superior.
@@ -22,73 +22,68 @@ Encontrar un **algoritmo de clasificación** que utilice el **número más bajo 
 
 ---
 
-## 2. ⚙️ Las Instrucciones Clave
+## 2.  Las Instrucciones Clave
 
 Solo puedes usar **11 instrucciones** para manipular las pilas:
 
 ### Operaciones de Intercambio (Swap)
 Intercambian los **dos primeros elementos** en la parte superior de la pila.
 
-- `sa` (swap a): intercambia los 2 primeros elementos de `a`.
-- `sb` (swap b): intercambia los 2 primeros elementos de `b`.
-- `ss`: ejecuta `sa` y `sb` simultáneamente.
+- `sa` (swap a): Intercambia los 2 primeros elementos en la parte superior de la pila `a`.
+- `sb` (swap b): Intercambia los 2 primeros elementos en la parte superior de la pila `b`.
+- `ss`: Ejecuta `sa` y `sb` simultáneamente.
 
 ### Operaciones de Empuje (Push)
-Mueven el **elemento superior** de una pila a la otra.
-
-- `pa` (push a): mueve el top de `b` a `a`.
-- `pb` (push b): mueve el top de `a` a `b`.
+Estas instrucciones mueven el elemento superior de una pila a la parte superior de la otra.
+- `pa` (push a): Toma el primer elemento de la parte superior de `b` y lo pone en la parte superior de `a`.
+- `pb` (push b): Toma el primer elemento de la parte superior de `a` y lo pone en la parte superior de `b`.
 
 ### Operaciones de Rotación (Rotate)
-Desplazan **todos los elementos hacia arriba**; el primer elemento pasa a ser el último.
-
-- `ra` (rotate a)
-- `rb` (rotate b)
+Estas instrucciones mueven todos los elementos de la pila hacia arriba y el primer elemento se convierte en el último (una rotación hacia arriba).
+- `ra` (rotate a) : Desplaza hacia arriba todos los elementos de la pila `a` en 1. El primer elemento se convierte en el último.
+- `rb` (rotate b) : Desplaza hacia arriba todos los elementos de la pila `b` en 1. El primer elemento se convierte en el último.
 - `rr`: ejecuta `ra` y `rb` simultáneamente.
 
 ### Operaciones de Rotación Inversa (Reverse Rotate)
-Desplazan **todos los elementos hacia abajo**; el último elemento pasa a ser el primero.
-
-- `rra` (reverse rotate a)
-- `rrb` (reverse rotate b)
+Estas instrucciones mueven todos los elementos de la pila hacia abajo, y el último elemento se convierte en el primero (una rotación hacia abajo).
+- `rra` (reverse rotate a): Desplaza hacia abajo todos los elementos de la pila `a` en 1. El último elemento se convierte en el primero.
+- `rrb` (reverse rotate b): Desplaza hacia abajo todos los elementos de la pila `b` en 1. El último elemento se convierte en el primero.
 - `rrr`: ejecuta `rra` y `rrb` simultáneamente.
 
 > **Tip:** Para visualizar estas operaciones, consulta la sección de ejemplo del subject de Push_swap.
 
 ---
 
-## 3. 🏁 Primeros Pasos: La Parte Obligatoria
+## 3.  Primeros Pasos: La Parte Obligatoria
 
 ### Paso 1: Configuración del Entorno y Manejo de Errores
-- **Estructura de Datos:** Lista doblemente enlazada recomendada (eficiente para `pa/pb` y rotaciones).
-- **Análisis de Argumentos:** Recibirás los números desde la línea de comandos (ej: `./push_swap 2 1 3 6 5 8`).
-- **Manejo de Errores:** Debes comprobar:
-  - Que los argumentos sean enteros válidos.
-  - Que no haya duplicados.
-  - Mostrar `Error\n` en `stderr` si hay problemas.
+- **1. Estructura de Datos:** Primero, decide cómo representarás las pilas `a` y `b`. Un listado doblemente enlazado (`doubly linked list`) es ideal, ya que permite la inserción\eliminación eficiente en la parte superior (para `pa`/`pb`) y el movimiento fácil de los nodos para las rotaciones (`ra`/`rra`, etc.).
+- **2. Análisis de Argumentos:** Tu programa `push_swap` recibirá los números como argumentos de línea de comandos (ej: `./push_swap 2 1 3 6 5 8`). El primer argumento es el elemento superior de la pila `a`.
+- **Manejo de Errores:** Es crucial manejar los errores correctamente y mostrar "`Error\n`" en el standard error. 
+Debes comprobar:
+  - Si los argumentos son **enteros válidos** (dentro de los límites de un `int`).
+  - Si hay **duplicados** en la lista de números.
 
 ### Paso 2: Implementación de las Instrucciones
-Implementa correctamente las **11 instrucciones** asegurando manipulación adecuada de tu estructura de pila.
+Implementa las 11 funciones de instrucción (`sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`). Asegúrate de que cada función manipule correctamente tu estructura de datos de pila.
 
-### Paso 3: Clasificación para Casos Pequeños
-- **3 Números:** Ordena con **máximo 3 movimientos**.
-- **5 Números:** Estrategia común:
-  - Mover 2-3 números pequeños a `b`.
-  - Ordenar los restantes en `a`.
-  - Reinsertar de `b` a `a` en orden correcto.
+### Paso 3: Clasificación para Casos Pequeños (Warm-up)
+Antes de pasar a un algoritmo complejo, practica con casos pequeños:
+* **3 Números:** Desarrolla un algoritmo que clasifique 3 números en la pila `a` en el menor número de movimientos posible (máximo 3 movimientos). Este es un ejercicio de lógica pura.
+* **5 Números:** Extiende la lógica para clasificar 5 números. Una estrategia común es mover 2 o 3 de los números más pequeños a la pila `b`, clasificar los 2 o 3 restantes en `a`, y luego volver a empujar los de `b` a `a` en el orden correcto.
 
-### Paso 4: Algoritmo para Grandes Cantidades
-Para 100 o 500 números, necesitarás un algoritmo eficiente.
+### Paso 4: Algoritmo para Grandes Cantidades (La clave del proyecto)
+Para clasificar 100 y 500 números, necesitarás un algoritmo eficiente. Los algoritmos de clasificación estándar (como Merge Sort o Quick Sort) no se aplican directamente debido al conjunto de instrucciones limitado.
 
-#### Sugerencia: Radix Sort
-1. Transformar los números en **índices del 0 al N−1**.
-2. Ordenar por bits usando `pb` y `pa`.
-3. Empezar por el bit menos significativo.
-> Esta técnica es rápida y cumple con los límites de operaciones.
-
+#### Sugerencia: Clasificación por Radix (Radix Sort)
+* El algoritmo más común y eficiente para `Push_swap` es una variación de Radix Sort.
+* Primero, **transforma los números** originales en un rango de índices (por ejemplo, del 0 al *N-1*, donde *N* es el número de elementos). Esto te permite clasificar por "bits".
+* **lica Radix Sort:** Clasifica los elementos de la pila a según sus bits (empezando por el bit menos significativo) utilizando `pb` y `pa` para moverlos entre las pilas. Esto es sorprendentemente rápido para esta restricción de instrucciones y puede cumplir con el *benchmark27*.
 ---
 
-## 4. 📈 Benchmarks de Rendimiento
+## 4.  Benchmarks de Rendimiento
+El éxito del proyecto se mide por la eficiencia de tu algoritmo. Tu programa será evaluado según el número de operaciones que utilice.
+Para obtener la **máxima validación (100%)** y ser elegible para la bonificación, debes cumplir estos límites:
 
 Número de elementos | Límite máximo de operaciones
 --- | ---
@@ -97,8 +92,8 @@ Número de elementos | Límite máximo de operaciones
 
 ---
 
-## 5. ➕ Parte de Bonificación: Programa `checker`
-
+## 5.  Parte de Bonificación: Programa `checker`
+La parte de bonificación consiste en crear un programa llamado `checker`.
 ### Función
 - Leer la pila inicial `a` desde argumentos.
 - Leer instrucciones (`sa`, `pb`, etc.) de **stdin**, separadas por `\n`.
@@ -111,7 +106,7 @@ Número de elementos | Límite máximo de operaciones
 
 ---
 
-## 6. ✅ Consejos Clave para el Éxito
+## 6.  Consejos Clave para el Éxito
 
 - **Rigor en C:** Manejo de memoria y cumplimiento de la norma (Norm).
 - **Pensar en Índices:** Más fácil que trabajar con valores originales grandes o negativos.
