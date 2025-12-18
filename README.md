@@ -1,4 +1,4 @@
-This project has been created as part of the 42 curriculum by serromer
+Este proyecto ha sido creado como parte del plan de estudios 42 por serromer.
 
 #  Guía Completa para el Proyecto Push_swap
 
