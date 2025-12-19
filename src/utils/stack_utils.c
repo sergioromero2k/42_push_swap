@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:18:58 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/19 12:36:42 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2025/12/19 12:40:17 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,18 @@ t_stack_node	*create_node(int num)
 
 t_stack_node	*initializate_stack_a(int argc, char **argv)
 {
-	t_stack_node	*a;
-	t_stack_node	*new_node;
-	char			**args;
-	int				i;
-	int				is_split;
-	long			num;
+	t_stack_node *a;
+	t_stack_node *new_node;
+	char **args;
+	int i;
+	int is_split;
+	long num;
 
 	a = NULL;
 	i = 0;
 	is_split = 0;
+	if (argc < 2)
+		return (0);
 	if (argc == 2)
 	{
 		args = ft_split(argv[1], ' ');
@@ -67,19 +69,28 @@ t_stack_node	*initializate_stack_a(int argc, char **argv)
 	}
 	else
 		args = argv + 1;
+
 	if (!args || !args[0])
-		handle_error_all(&a, args, argc == 2);
+	{
+		if (is_split)
+			handle_error_all(&a, args, 1);
+		exit(EXIT_FAILURE);
+	}
+
 	while (args[i])
 	{
-		if (!check_arg_format(args[i], &num))
+		if (check_arg_format(args[i], &num) == EXIT_FAILURE)
 			handle_error_all(&a, args, is_split);
+
 		new_node = create_node((int)num);
 		if (!new_node || add_node_to_stack(&a, new_node) == EXIT_FAILURE)
 			handle_error_all(&a, args, is_split);
 		i++;
 	}
+
 	if (check_duplicates(a) == EXIT_FAILURE)
 		handle_error_all(&a, args, is_split);
+
 	if (is_split)
 		free_split(args);
 	return (a);
