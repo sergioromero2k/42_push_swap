@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   can_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 22:12:16 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/23 22:13:23 by sergio-alej      ###   ########.fr       */
+/*   Created: 2025/12/23 22:01:19 by sergio-alej       #+#    #+#             */
+/*   Updated: 2025/12/23 22:02:55 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(t_stack_node **b)
+int	can_rotate(t_stack_node *stack)
 {
-	rotate(b);
-	write(1, "rb\n", 3);
+	if (!stack)
+		return (0);
+	if (!stack->next)
+		return (0);
+	return (1);
 }

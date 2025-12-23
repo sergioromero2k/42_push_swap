@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   get_last_node.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 22:12:16 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/23 22:13:23 by sergio-alej      ###   ########.fr       */
+/*   Created: 2025/12/23 22:00:35 by sergio-alej       #+#    #+#             */
+/*   Updated: 2025/12/23 22:04:31 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(t_stack_node **b)
+t_stack_node	*get_last_node(t_stack_node *stack)
 {
-	rotate(b);
-	write(1, "rb\n", 3);
+	if (!can_rotate(stack))
+		return (NULL);
+	while (stack->next != NULL)
+		stack = stack->next;
+	return (stack);
 }

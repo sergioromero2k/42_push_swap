@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/19 12:48:23 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2025/12/23 22:17:07 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_stack_node
 	int					index;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
-
 }						t_stack_node;
 
 int						check_arg_format(char *str, long *num);
@@ -42,5 +41,10 @@ t_stack_node			*create_node(int num);
 t_stack_node			*fill_stack_a(char **args, int is_split,
 							t_stack_node *a);
 t_stack_node			*initializate_stack_a(int argc, char **argv);
-
+int						can_rotate(t_stack_node *stack);
+t_stack_node			*get_last_node(t_stack_node *stack);
+void					rotate(t_stack_node **stack);
+void					ra(t_stack_node **a);
+void					rb(t_stack_node **b);
+void					rr(t_stack_node **a, t_stack_node **b);
 #endif

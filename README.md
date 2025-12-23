@@ -121,6 +121,11 @@ push_swap_project/
 ├── push_swap.c               # Main entry point
 ├── src/
 │   ├── main.c                # Actual main function of the program
+│   ├── operations/         
+│   │   ├── swap.c
+│   │   ├── push.c
+│   │   ├── rotate.c
+│   │   └── reverse_rotate.c
 │   ├── rules/                # Implementation of each stack operation
 │   │   ├── sa.c
 │   │   ├── sb.c
