@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/23 23:18:12 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2025/12/24 18:34:28 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_stack_node			*get_last_node(t_stack_node *stack);
 void					rotate(t_stack_node **stack);
 void					reverse_rotate(t_stack_node **stack);
 void					swap(t_stack_node **stack);
+void					push(t_stack_node **dest, t_stack_node **src);
 void					ra(t_stack_node **a);
 void					rb(t_stack_node **b);
 void					rr(t_stack_node **a, t_stack_node **b);
@@ -55,4 +56,7 @@ void					rrr(t_stack_node **a, t_stack_node **b);
 void					sa(t_stack_node **a);
 void					sb(t_stack_node **b);
 void					ss(t_stack_node **a, t_stack_node **b);
+void					pa(t_stack_node **a, t_stack_node **b);
+void					pb(t_stack_node **a, t_stack_node **b);
+
 #endif
