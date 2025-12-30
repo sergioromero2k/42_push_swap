@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 23:15:25 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/23 23:17:08 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2025/12/30 05:09:44 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	sb(t_stack_node **b)
 {
-	swap(*b);
+	swap(b);
 	write(1, "sb\n", 3);
 }

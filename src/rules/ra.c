@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 22:11:22 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/23 22:12:06 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2025/12/30 05:08:25 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ra(t_stack_node **a)
 {
-	rotate(*a);
+	rotate(a);
 	write(1, "ra\n", 3);
 }

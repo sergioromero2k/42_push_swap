@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 18:28:09 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/24 18:33:16 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2025/12/30 05:08:30 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	pa(t_stack_node **a, t_stack_node **b)
 {
-	push(*a, *b);
+	push(a, b);
 	write(1, "pa\n", 3);
 }

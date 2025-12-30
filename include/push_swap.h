@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/24 18:34:28 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2025/12/30 05:17:21 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,10 @@ void					sb(t_stack_node **b);
 void					ss(t_stack_node **a, t_stack_node **b);
 void					pa(t_stack_node **a, t_stack_node **b);
 void					pb(t_stack_node **a, t_stack_node **b);
+void					sort_3(t_stack_node **a);
+void					sort_5(t_stack_node **a, t_stack_node **b);
+void					push_min_to_b(t_stack_node **a, t_stack_node **b);
+void					move_b(t_stack_node **a, t_stack_node **b, int i,
+							int pos);
 
 #endif
