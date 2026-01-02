@@ -73,7 +73,7 @@ Antes de pasar a un algoritmo complejo, practica con casos pequeños:
 * **5 Números:** Extiende la lógica para clasificar 5 números. Una estrategia común es mover 2 o 3 de los números más pequeños a la pila `b`, clasificar los 2 o 3 restantes en `a`, y luego volver a empujar los de `b` a `a` en el orden correcto.
 
 ### Paso 4: Algoritmo para Grandes Cantidades (La clave del proyecto)
-Para clasificar 100 y 500 números con la máxima eficiencia (menos de 700 y 5500 operaciones respectivamente), el algoritmo de Radix Sort no es suficiente. En su lugar, implementamos el Turk Algorithm, una estrategia basada en el análisis de coste de movimientos.
+Para clasificar 100 y 500 números con la máxima eficiencia (menos de 700 y 5500 operaciones respectivamente), el algoritmo de Radix Sort no es suficiente. En su lugar, implementamos el **Turk Algorithm**, una estrategia basada en el análisis de coste de movimientos.
 
 #### 1. Pre-procesamiento: Indexación con Quick Sort
 Antes de manipular los stacks, utilizamos un Quick Sort tradicional sobre un array auxiliar.
@@ -95,7 +95,7 @@ Esta es la fase crítica para cumplir los benchmarks. Devolvemos los números de
 #### 4. Ajuste Final
 Una vez que todos los elementos están de vuelta en el Stack A, realizamos una rotación final para que el número más pequeño (índice 0) quede en el tope, dejando la lista perfectamente ordenada.
 
-##### Tabla de Rendimiento del Algoritmo Radix Sort
+##### Tabla de Rendimiento del Algoritmo Turk Algorithm
 
 | Cantidad de Números | Límite 42 (100%) | Rendimiento Turk |
 |---------------------|------------------|------------------|
