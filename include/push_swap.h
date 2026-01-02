@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/30 05:17:21 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/02 04:38:39 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,8 @@ void					sort_5(t_stack_node **a, t_stack_node **b);
 void					push_min_to_b(t_stack_node **a, t_stack_node **b);
 void					move_b(t_stack_node **a, t_stack_node **b, int i,
 							int pos);
+void					ft_swap(int *a, int *b);
+int						find_pivot_index(int arr[], int ini, int final);
+void					quicksort(int arr[], int ini, int final);
 
 #endif

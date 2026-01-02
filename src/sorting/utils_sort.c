@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 04:16:39 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/30 05:20:40 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/02 04:38:06 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,44 @@ void	move_b(t_stack_node **a, t_stack_node **b, int i, int pos)
 			rra(a);
 	}
 	pb(a, b);
+}
+void	ft_swap(int *a, int *b)
+{
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+int	find_pivot_index(int arr[], int ini, int final)
+{
+	int	pivot;
+	int	i;
+	int	j;
+
+	pivot = arr[final];
+	i = ini - 1;
+	j = ini;
+	while (j < final)
+	{
+		if (arr[j] < pivot)
+		{
+			i++;
+			ft_swap(&arr[i], &arr[j]);
+		}
+		j++;
+	}
+	ft_swap(&arr[i + 1], &arr[final]);
+	return (i + 1);
+}
+void	quicksort(int arr[], int ini, int final)
+{
+	int pivot;
+
+	if (ini < final)
+	{
+		pivot = find_pivot_index(arr, ini, final);
+		quicksort(arr, ini, pivot - 1);
+		quicksort(arr, pivot + 1, final);
+	}
 }
