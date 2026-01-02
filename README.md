@@ -73,13 +73,34 @@ Antes de pasar a un algoritmo complejo, practica con casos pequeños:
 * **5 Números:** Extiende la lógica para clasificar 5 números. Una estrategia común es mover 2 o 3 de los números más pequeños a la pila `b`, clasificar los 2 o 3 restantes en `a`, y luego volver a empujar los de `b` a `a` en el orden correcto.
 
 ### Paso 4: Algoritmo para Grandes Cantidades (La clave del proyecto)
-Para clasificar 100 y 500 números, necesitarás un algoritmo eficiente. Los algoritmos de clasificación estándar (como Merge Sort o Quick Sort) no se aplican directamente debido al conjunto de instrucciones limitado.
+Para clasificar 100 y 500 números con la máxima eficiencia (menos de 700 y 5500 operaciones respectivamente), el algoritmo de Radix Sort no es suficiente. En su lugar, implementamos el Turk Algorithm, una estrategia basada en el análisis de coste de movimientos.
 
-#### Sugerencia: Clasificación por Radix (Radix Sort)
-* El algoritmo más común y eficiente para `Push_swap` es una variación de Radix Sort.
-* Primero, **transforma los números** originales en un rango de índices (por ejemplo, del 0 al *N-1*, donde *N* es el número de elementos). Esto te permite clasificar por "bits".
-* **lica Radix Sort:** Clasifica los elementos de la pila a según sus bits (empezando por el bit menos significativo) utilizando `pb` y `pa` para moverlos entre las pilas. Esto es sorprendentemente rápido para esta restricción de instrucciones y puede cumplir con el *benchmark27*.
----
+#### 1. Pre-procesamiento: Indexación con Quick Sort
+Antes de manipular los stacks, utilizamos un Quick Sort tradicional sobre un array auxiliar.
+* **Propósito**: Convertir los valores de entrada (que pueden ser muy grandes o negativos) en índices de 0 a N-1.
+* **Ventaja**: Esto nos permite conocer la posición final de cada número y simplifica el cálculo de "distancias" entre elementos del stack.
+
+#### 2. Fase de Pre-clasificación (A -> B)
+En lugar de pasar números al azar, movemos elementos del Stack A al Stack B siguiendo una lógica de "chunks" o medianas basadas en el índice:
+* Enviamos casi todos los números a B, dejando solo 3 elementos en A.
+* Intentamos que B quede "parcialmente organizado" para reducir el coste de la siguiente fase.
+
+#### 3. El Algoritmo Turco (B -> A): Análisis de Coste
+Esta es la fase crítica para cumplir los benchmarks. Devolvemos los números de B a A seleccionando siempre el movimiento más eficiente:
+* **Cálculo de Target**: Para cada nodo en B, identificamos su posición ideal en A (donde encajaría en orden ascendente).
+* **Análisis de Coste**: Calculamos cuántas operaciones (ra, rb, rra, rrb) cuesta poner el nodo de B en el tope y preparar su hueco en A.
+* **Optimización de Movimientos**: Aprovechamos las operaciones dobles (rr, rrr) si ambos stacks deben rotar en la misma dirección.
+* **Ejecución**: Seleccionamos y movemos el nodo que requiera el menor número total de instrucciones.
+
+#### 4. Ajuste Final
+Una vez que todos los elementos están de vuelta en el Stack A, realizamos una rotación final para que el número más pequeño (índice 0) quede en el tope, dejando la lista perfectamente ordenada.
+
+##### Tabla de Rendimiento del Algoritmo Radix Sort
+
+| Cantidad de Números | Límite 42 (100%) | Rendimiento Turk |
+|---------------------|------------------|------------------|
+| 100 números         | < 700 ops        | ~600 ops         |
+| 500 números         | < 5500 ops       | ~5000 ops        |
 
 ## 4.  Benchmarks de Rendimiento
 El éxito del proyecto se mide por la eficiencia de tu algoritmo. Tu programa será evaluado según el número de operaciones que utilice.
