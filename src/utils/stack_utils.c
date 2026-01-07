@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:18:58 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/19 12:48:26 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/07 11:50:25 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,16 @@ t_stack_node	*initializate_stack_a(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	return (fill_stack_a(args, is_split, a));
+}
+int	get_stack_size(t_stack_node *stack)
+{
+	int i;
+
+	i = 0;
+	while (stack->next)
+	{
+		i++;
+		stack->next;
+	}
+	return (i);
 }

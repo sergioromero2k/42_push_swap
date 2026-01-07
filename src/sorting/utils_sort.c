@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 04:16:39 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/02 05:37:26 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/07 12:12:18 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,46 @@ void	quicksort(int arr[], int ini, int final)
 		quicksort(arr, pivot + 1, final);
 	}
 }
-
-void	assign_index(t_stack_node *a, int *sorted_arr, int size)
+void	fill_index(t_stack_node *stack, int *arr, int size)
 {
+	int	i;
+
+	if (!stack || !arr)
+		return ;
+	while (stack)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (stack->value == arr[i])
+			{
+				stack->index = i;
+				break ;
+			}
+			i++;
+		}
+		stack = stack->next;
+	}
 }
-
-t_stack_node	*find_max(t_stack_node *stack)
+void	assign_index(t_stack_node *stack, int stack_size)
 {
-}
+	int				*arr;
+	int				i;
+	t_stack_node	*tmp;
 
-t_stack_node	*find_min(t_stack_node *stack)
-{
+	if (!stack)
+		return ;
+	arr = malloc(sizeof(int) * stack_size);
+	if (!arr)
+		return ;
+	i = 0;
+	tmp = stack;
+	while (tmp)
+	{
+		arr[i++] = tmp->value;
+		tmp = tmp->next;
+	}
+	quicksort(arr, 0, stack_size - 1);
+	fill_index(stack, arr, stack_size);
+	free(arr);
 }

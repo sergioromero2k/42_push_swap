@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/02 04:38:39 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/07 13:04:44 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_stack_node			*create_node(int num);
 t_stack_node			*fill_stack_a(char **args, int is_split,
 							t_stack_node *a);
 t_stack_node			*initializate_stack_a(int argc, char **argv);
+int						get_stack_size(t_stack_node *stack);
 int						can_rotate(t_stack_node *stack);
 t_stack_node			*get_last_node(t_stack_node *stack);
 void					rotate(t_stack_node **stack);
@@ -66,5 +67,8 @@ void					move_b(t_stack_node **a, t_stack_node **b, int i,
 void					ft_swap(int *a, int *b);
 int						find_pivot_index(int arr[], int ini, int final);
 void					quicksort(int arr[], int ini, int final);
-
+void					fill_index(t_stack_node *stack, int *arr, int size);
+void					assign_index(t_stack_node *stack, int stack_size);
+int						find_min_index(t_stack_node *stack);
+int						find_target(t_stack_node *a, int b_index);
 #endif
