@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:24:18 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/19 12:25:34 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/10 22:24:43 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,20 @@ int	check_arg_format(char *str, long *num)
 	return (EXIT_SUCCESS);
 }
 
-int check_duplicates(t_stack_node *a)
+int	check_duplicates(t_stack_node *a)
 {
-    t_stack_node *current;
-    t_stack_node *check;
+	t_stack_node	*current;
 
-    if (!a)
-        return (EXIT_SUCCESS);
-    current = a;
-    while (1)
-    {
-        check = current->next;
-        while (check != a) 
-        {
-            if (current->value == check->value)
-                return (EXIT_FAILURE);
-            check = check->next;
-        }
-        current = current->next;
-        if (current == a)
-            break;
-    }
-    return (EXIT_SUCCESS);
+	while (a)
+	{
+		current = a->next;
+		while (current)
+		{
+			if (a->value == current->value)
+				return (EXIT_FAILURE);
+			current = current->next;
+		}
+		a = a->next;
+	}
+	return (EXIT_SUCCESS);
 }

@@ -6,20 +6,21 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/07 13:04:44 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/10 22:22:37 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft.h"
+# include "../libft/include/libft.h"
 # include <limits.h>
-# include <stdarg.h>
 # include <stdbool.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+/* --- Estructuras --- */
+
 typedef struct s_stack_node
 {
 	int					value;
@@ -28,47 +29,76 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }						t_stack_node;
 
+typedef struct s_cost
+{
+	int					cost_a;
+	int					cost_b;
+	int					total_cost;
+	int					target_index;
+	t_stack_node		*node_b;
+}						t_cost;
+
+/* --- Parsing y Errores (src/utils/) --- */
+
 int						check_arg_format(char *str, long *num);
 int						check_duplicates(t_stack_node *a);
 void					free_split(char **args);
 void					free_stack(t_stack_node **stack);
+void					handle_error(t_stack_node **a);
 void					handle_error_all(t_stack_node **a, char **args,
 							int is_split);
-void					handle_error(t_stack_node **a);
+
+/* --- Gestión de Stack (src/utils/ y src/operations/) --- */
+
+t_stack_node			*create_node(int num);
 int						add_node_to_stack(t_stack_node **stack,
 							t_stack_node *new);
-t_stack_node			*create_node(int num);
+/* Añadido fill_stack_a que faltaba en el header */
 t_stack_node			*fill_stack_a(char **args, int is_split,
 							t_stack_node *a);
 t_stack_node			*initializate_stack_a(int argc, char **argv);
 int						get_stack_size(t_stack_node *stack);
-int						can_rotate(t_stack_node *stack);
 t_stack_node			*get_last_node(t_stack_node *stack);
+
+/* --- Operaciones Maestras (src/operations/) --- */
+
 void					rotate(t_stack_node **stack);
 void					reverse_rotate(t_stack_node **stack);
 void					swap(t_stack_node **stack);
 void					push(t_stack_node **dest, t_stack_node **src);
+
+/* --- Reglas Oficiales (src/rules/) --- */
+
+void					pa(t_stack_node **a, t_stack_node **b);
+void					pb(t_stack_node **a, t_stack_node **b);
+void					sa(t_stack_node **a);
+void					sb(t_stack_node **b);
+void					ss(t_stack_node **a, t_stack_node **b);
 void					ra(t_stack_node **a);
 void					rb(t_stack_node **b);
 void					rr(t_stack_node **a, t_stack_node **b);
 void					rra(t_stack_node **a);
 void					rrb(t_stack_node **b);
 void					rrr(t_stack_node **a, t_stack_node **b);
-void					sa(t_stack_node **a);
-void					sb(t_stack_node **b);
-void					ss(t_stack_node **a, t_stack_node **b);
-void					pa(t_stack_node **a, t_stack_node **b);
-void					pb(t_stack_node **a, t_stack_node **b);
+
+/* --- Algoritmos de Ordenación (src/sorting/) --- */
+
 void					sort_3(t_stack_node **a);
-void					sort_5(t_stack_node **a, t_stack_node **b);
-void					push_min_to_b(t_stack_node **a, t_stack_node **b);
-void					move_b(t_stack_node **a, t_stack_node **b, int i,
-							int pos);
-void					ft_swap(int *a, int *b);
-int						find_pivot_index(int arr[], int ini, int final);
-void					quicksort(int arr[], int ini, int final);
-void					fill_index(t_stack_node *stack, int *arr, int size);
+void					turk_sort(t_stack_node **a, t_stack_node **b);
 void					assign_index(t_stack_node *stack, int stack_size);
-int						find_min_index(t_stack_node *stack);
+void					quicksort(int arr[], int ini, int final);
+/* Añadido ft_swap si lo usas fuera de quicksort */
+void					ft_swap(int *a, int *b);
+
+/* --- Utilidades de Turk Engine (src/sorting/) --- */
+
+int						get_node_pos(t_stack_node *stack, int index);
 int						find_target(t_stack_node *a, int b_index);
+int						find_min_index(t_stack_node *stack);
+t_cost					calc_node_cost(t_stack_node *a, t_stack_node *b,
+							int b_idx);
+t_cost					get_best_move(t_stack_node *a, t_stack_node *b);
+void					execute_moves(t_stack_node **a, t_stack_node **b,
+							t_cost c);
+
 #endif

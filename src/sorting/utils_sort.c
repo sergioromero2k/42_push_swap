@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 04:16:39 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/07 12:12:18 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/10 21:50:26 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_swap(int *a, int *b)
 	*a = *b;
 	*b = temp;
 }
+
 int	find_pivot_index(int arr[], int ini, int final)
 {
 	int	pivot;
@@ -41,6 +42,7 @@ int	find_pivot_index(int arr[], int ini, int final)
 	ft_swap(&arr[i + 1], &arr[final]);
 	return (i + 1);
 }
+
 void	quicksort(int arr[], int ini, int final)
 {
 	int	pivot;
@@ -52,12 +54,11 @@ void	quicksort(int arr[], int ini, int final)
 		quicksort(arr, pivot + 1, final);
 	}
 }
+
 void	fill_index(t_stack_node *stack, int *arr, int size)
 {
 	int	i;
 
-	if (!stack || !arr)
-		return ;
 	while (stack)
 	{
 		i = 0;
@@ -73,11 +74,12 @@ void	fill_index(t_stack_node *stack, int *arr, int size)
 		stack = stack->next;
 	}
 }
+
 void	assign_index(t_stack_node *stack, int stack_size)
 {
-	int				*arr;
-	int				i;
-	t_stack_node	*tmp;
+	int *arr;
+	int i;
+	t_stack_node *tmp;
 
 	if (!stack)
 		return ;
