@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 05:20:43 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 21:49:01 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/10 22:53:44 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ void	sort_3(t_stack_node **a)
 	s = (*a)->next->value;
 	t = (*a)->next->next->value;
 	if (f > s && s < t && f < t)
-		sa(a);
+		sa(a, 1);
 	else if (f > s && s > t)
 	{
-		sa(a);
-		rra(a);
+		sa(a, 1);
+		rra(a, 1);
 	}
 	else if (f > s && s < t && f > t)
-		ra(a);
+		ra(a, 1);
 	else if (f < s && s > t && f < t)
 	{
-		sa(a);
-		ra(a);
+		sa(a, 1);
+		ra(a, 1);
 	}
 	else if (f < s && s > t && f > t)
-		rra(a);
+		rra(a, 1);
 }

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   stack_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 22:42:42 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 22:51:15 by sergio-alej      ###   ########.fr       */
+/*   Created: 2026/01/10 23:20:38 by sergio-alej       #+#    #+#             */
+/*   Updated: 2026/01/10 23:20:57 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack_node **a, int print)
+int	is_sorted(t_stack_node *stack)
 {
-	reverse_rotate(a); 
-	if (print)
-		write(1, "rra\n", 4);
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

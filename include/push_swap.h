@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 02:21:08 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 22:22:37 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/10 23:16:54 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,18 @@ void					push(t_stack_node **dest, t_stack_node **src);
 
 /* --- Reglas Oficiales (src/rules/) --- */
 
-void					pa(t_stack_node **a, t_stack_node **b);
-void					pb(t_stack_node **a, t_stack_node **b);
-void					sa(t_stack_node **a);
-void					sb(t_stack_node **b);
-void					ss(t_stack_node **a, t_stack_node **b);
-void					ra(t_stack_node **a);
-void					rb(t_stack_node **b);
-void					rr(t_stack_node **a, t_stack_node **b);
-void					rra(t_stack_node **a);
-void					rrb(t_stack_node **b);
-void					rrr(t_stack_node **a, t_stack_node **b);
+/* --- Reglas (Rules) --- */
+void					sa(t_stack_node **a, int print);
+void					sb(t_stack_node **b, int print);
+void					ss(t_stack_node **a, t_stack_node **b, int print);
+void					pa(t_stack_node **a, t_stack_node **b, int print);
+void					pb(t_stack_node **a, t_stack_node **b, int print);
+void					ra(t_stack_node **a, int print);
+void					rb(t_stack_node **b, int print);
+void					rr(t_stack_node **a, t_stack_node **b, int print);
+void					rra(t_stack_node **a, int print);
+void					rrb(t_stack_node **b, int print);
+void					rrr(t_stack_node **a, t_stack_node **b, int print);
 
 /* --- Algoritmos de Ordenación (src/sorting/) --- */
 
@@ -92,13 +93,17 @@ void					ft_swap(int *a, int *b);
 
 /* --- Utilidades de Turk Engine (src/sorting/) --- */
 
-int						get_node_pos(t_stack_node *stack, int index);
-int						find_target(t_stack_node *a, int b_index);
-int						find_min_index(t_stack_node *stack);
-t_cost					calc_node_cost(t_stack_node *a, t_stack_node *b,
-							int b_idx);
-t_cost					get_best_move(t_stack_node *a, t_stack_node *b);
-void					execute_moves(t_stack_node **a, t_stack_node **b,
-							t_cost c);
+int                     get_node_pos(t_stack_node *stack, int index);
+int                     find_target(t_stack_node *a, int b_index);
+int                     find_min_index(t_stack_node *stack);
+t_cost                  calc_node_cost(t_stack_node *a, t_stack_node *b,
+                            int b_idx);
+t_cost                  get_best_move(t_stack_node *a, t_stack_node *b);
+void                    execute_moves(t_stack_node **a, t_stack_node **b,
+                            t_cost c);
+
+/* --- NUEVAS ADICIONES PARA EL BONUS --- */
+int                     is_sorted(t_stack_node *stack);
+char                    *get_next_line(int fd);
 
 #endif

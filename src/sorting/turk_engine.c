@@ -6,7 +6,7 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 21:14:45 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 21:50:10 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/10 22:59:04 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,22 +74,22 @@ void	execute_moves(t_stack_node **a, t_stack_node **b, t_cost c)
 {
 	while (c.cost_a > 0 && c.cost_b > 0)
 	{
-		rr(a, b);
+		rr(a, b, 1);
 		c.cost_a--;
 		c.cost_b--;
 	}
 	while (c.cost_a < 0 && c.cost_b < 0)
 	{
-		rrr(a, b);
+		rrr(a, b, 1);
 		c.cost_a++;
 		c.cost_b++;
 	}
 	while (c.cost_a > 0 && c.cost_a--)
-		ra(a);
+		ra(a, 1);
 	while (c.cost_a < 0 && c.cost_a++)
-		rra(a);
+		rra(a, 1);
 	while (c.cost_b > 0 && c.cost_b--)
-		rb(b);
+		rb(b, 1);
 	while (c.cost_b < 0 && c.cost_b++)
-		rrb(b);
+		rrb(b, 1);
 }

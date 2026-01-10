@@ -136,43 +136,38 @@ La parte de bonificación consiste en crear un programa llamado `checker`.
 
 ###  Additional sections (Tree)
 ```markdown
-push_swap_project/
-├── Makefile                  # Builds push_swap (and checker if implemented)
-├── README.md                 # Project explanation, instructions, examples
-├── push_swap.c               # Main entry point
-├── src/
-│   ├── main.c                # Actual main function of the program
-│   ├── operations/         
-│   │   ├── swap.c
-│   │   ├── push.c
-│   │   ├── rotate.c
-│   │   └── reverse_rotate.c
-│   ├── rules/                # Implementation of each stack operation
-│   │   ├── sa.c
-│   │   ├── sb.c
-│   │   ├── ss.c
-│   │   ├── pa.c
-│   │   ├── pb.c
-│   │   ├── ra.c
-│   │   ├── rb.c
-│   │   ├── rr.c
-│   │   ├── rra.c
-│   │   ├── rrb.c
-│   │   └── rrr.c
-│   ├── sorting/              # Sorting algorithms
-│   │   ├── sort_small.c      # Sorts 2-5 elements
-│   │   ├── sort_large.c      # Algorithm for >5 elements (e.g., Radix Sort)
-│   │   └── utils_sort.c      # Helper functions for sorting
-│   └── utils/                # General helper functions
-│       ├── error_handling.c
-│       ├── stack_utils.c
-│       └── arg_parsing.c
+push_swap/
+├── Makefile                  # Compila push_swap y el checker (bonus)
 ├── include/
-│   ├── push_swap.h           # Main prototypes and structs
-│   └── checker_bonus.h       # Prototypes specific to checker/bonus
-└── libft/                    # Your Libft library
-    ├── src/                  # Libft .c files
-    ├── include/              # Libft header
-    │   └── libft.h
-    └── Makefile               # Makefile to build libft
+│   └── push_swap.h           # Prototipos, estructuras de las pilas y macros
+├── src/
+│   ├── main.c                # Punto de entrada principal para push_swap
+│   ├── operations/           # Lógica base de manipulación de nodos
+│   │   ├── stack_ops_1.c     # Lógica fundamental para push y swap
+│   │   └── stack_ops_2.c     # Lógica fundamental para rotate y reverse rotate
+│   ├── rules/                # Las 11 instrucciones obligatorias (llaman a operations)
+│   │   ├── pa.c  ├── pb.c    # Movimientos entre pilas
+│   │   ├── ra.c  ├── rb.c  ├── rr.c    # Rotaciones simples y dobles
+│   │   ├── rra.c ├── rrb.c ├── rrr.c   # Rotaciones inversas simples y dobles
+│   │   └── sa.c  ├── sb.c  └── ss.c    # Intercambios simples y dobles
+│   ├── sorting/              # Lógica de ordenación (Algoritmo Turk)
+│   │   ├── sort_large.c      # Orquestador para listas grandes (> 5 números)
+│   │   ├── sort_small.c      # Algoritmo optimizado para 3 y 5 números
+│   │   ├── turk_engine.c     # El "cerebro": cálculo de costes y selección de movimientos
+│   │   └── utils_sort.c      # Funciones de apoyo (indexación, buscar el menor, etc.)
+│   └── utils/                # Funciones auxiliares generales
+│       ├── arg_parsing.c     # Validación de argumentos y conversión (ft_atol)
+│       ├── error_handling.c  # Gestión de errores (imprime "Error\n" y libera memoria)
+│       └── stack_utils.c     # Gestión de la memoria de la pila (crear/liberar nodos)
+├── src_bonus/                # Implementación del programa Checker
+│   ├── checker_main.c        # Main del checker: lee instrucciones y verifica el orden
+│   └── gnl.c                 # get_next_line para leer la entrada estándar (stdin)
+└── libft/                    # Tu librería de funciones genéricas
+    ├── Makefile              # Compila la libft.a
+    ├── include/
+    │   └── libft.h           # Cabecera con los prototipos de la libft
+    └── src/                  # Archivos fuente de la libft
+        ├── ft_atol.c         # Conversión de string a long (esencial para overflow)
+        ├── ft_split.c        # Para gestionar argumentos entre comillas
+        └── ...               # Resto de funciones (ft_strlen, ft_calloc, etc.)
 ```

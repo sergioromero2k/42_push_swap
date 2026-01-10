@@ -6,14 +6,15 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 22:12:16 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/23 22:13:23 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/10 22:50:30 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(t_stack_node **b)
+void	rb(t_stack_node **b, int print)
 {
 	rotate(b);
-	write(1, "rb\n", 3);
+	if (print)
+		write(1, "rb\n", 3);
 }

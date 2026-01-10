@@ -6,11 +6,10 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 05:23:43 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 22:05:27 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/10 22:57:15 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
 #include "push_swap.h"
 
 int	find_min_index(t_stack_node *stack)
@@ -77,13 +76,13 @@ void	final_adjustment(t_stack_node **a)
 	if (pos <= size / 2)
 	{
 		while (pos-- > 0)
-			ra(a);
+			ra(a, 1);
 	}
 	else
 	{
 		pos = size - pos;
 		while (pos-- > 0)
-			rra(a);
+			rra(a, 1);
 	}
 }
 
@@ -94,14 +93,14 @@ void	turk_sort(t_stack_node **a, t_stack_node **b)
 	size = get_stack_size(*a);
 	while (size > 3)
 	{
-		pb(a, b);
+		pb(a, b, 1);
 		size--;
 	}
 	sort_3(a);
 	while (*b)
 	{
 		execute_moves(a, b, get_best_move(*a, *b));
-		pa(a, b);
+		pa(a, b, 1);
 	}
 	final_adjustment(a);
 }

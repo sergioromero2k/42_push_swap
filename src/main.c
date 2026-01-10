@@ -5,33 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 21:03:10 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 22:20:41 by sergio-alej      ###   ########.fr       */
+/*   Created: 2026/01/10 22:19:35 by sergio-alej       #+#    #+#             */
+/*   Updated: 2026/01/10 23:20:36 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_sorted(t_stack_node *stack)
-{
-	if (!stack)
-		return (1);
-	while (stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
-static void	push_swap(t_stack_node **a, t_stack_node **b)
+void	push_swap(t_stack_node **a, t_stack_node **b)
 {
 	int	size;
 
 	size = get_stack_size(*a);
 	if (size == 2)
-		sa(a);
+		sa(a,1);
 	else if (size == 3)
 		sort_3(a);
 	else

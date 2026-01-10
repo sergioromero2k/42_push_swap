@@ -6,14 +6,15 @@
 /*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 23:15:25 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/30 05:09:44 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/10 22:48:01 by sergio-alej      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(t_stack_node **b)
+void	sb(t_stack_node **b, int print)
 {
-	swap(b);
-	write(1, "sb\n", 3);
+	swap(b); 
+	if (print)
+		write(1, "sb\n", 3);
 }
