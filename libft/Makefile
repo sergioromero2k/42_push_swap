@@ -21,6 +21,7 @@ SRC     = src/ft_atol.c \
           src/ft_strmapi.c \
           src/ft_strncmp.c \
           src/ft_strnstr.c \
+          src/ft_strcmp.c\
           src/ft_strrchr.c \
           src/ft_strtrim.c \
           src/ft_substr.c

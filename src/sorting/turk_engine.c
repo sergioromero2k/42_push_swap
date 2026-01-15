@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_engine.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 21:14:45 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 22:59:04 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:15:17 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int	get_node_pos(t_stack_node *stack, int index)
 	return (pos);
 }
 
-static int	ft_abs(int n)
+int	ft_abs(int n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
 }
 
-static int	get_total_cost(int a, int b)
+int	get_total_cost(int a, int b)
 {
 	if ((a > 0 && b > 0) || (a < 0 && b < 0))
 	{

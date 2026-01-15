@@ -3,32 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 23:05:42 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 23:18:01 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:13:21 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s1[i] == s2[i])
-	{
-		if (s1[i] == '\0')
-			return (0);
-		i++;
-	}
-	if (!s1[i] || !s2[i])
-		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-static void	execute_instruction(t_stack_node **a, t_stack_node **b, char *line)
+void	execute_instruction(t_stack_node **a, t_stack_node **b, char *line)
 {
 	if (!ft_strcmp(line, "sa\n"))
 		sa(a, 0);
