@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_large.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 05:23:43 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 22:57:15 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:33:37 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	final_adjustment(t_stack_node **a)
 
 void	turk_sort(t_stack_node **a, t_stack_node **b)
 {
-	int size;
+	int	size;
 
 	size = get_stack_size(*a);
 	while (size > 3)

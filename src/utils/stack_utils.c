@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:18:58 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 21:59:03 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:31:09 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ t_stack_node	*initializate_stack_a(int argc, char **argv)
 
 int	get_stack_size(t_stack_node *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (stack)

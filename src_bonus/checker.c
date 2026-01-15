@@ -6,7 +6,7 @@
 /*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 23:05:42 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/15 07:13:21 by serromer         ###   ########.fr       */
+/*   Updated: 2026/01/15 07:30:55 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	execute_instruction(t_stack_node **a, t_stack_node **b, char *line)
 
 int	main(int argc, char **argv)
 {
-	t_stack_node *a;
-	t_stack_node *b;
-	char *line;
+	t_stack_node	*a;
+	t_stack_node	*b;
+	char			*line;
 
 	if (argc < 2)
 		return (0);

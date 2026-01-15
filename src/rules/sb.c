@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 23:15:25 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 22:48:01 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:29:22 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sb(t_stack_node **b, int print)
 {
-	swap(b); 
+	swap(b);
 	if (print)
 		write(1, "sb\n", 3);
 }

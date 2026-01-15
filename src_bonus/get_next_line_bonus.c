@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 23:14:07 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 23:14:13 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:33:11 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ char	*get_next_line(int fd)
 	if (fd < 0)
 		return (NULL);
 	line = NULL;
-	while ((rd = read(fd, &buffer, 1)) > 0)
+	rd = read(fd, &buffer, 1);
+	while ((rd) > 0)
 	{
 		line = ft_strjoin_mini(line, buffer);
 		if (buffer == '\n')

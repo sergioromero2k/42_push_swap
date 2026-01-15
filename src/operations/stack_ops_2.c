@@ -6,7 +6,7 @@
 /*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 07:14:26 by serromer          #+#    #+#             */
-/*   Updated: 2026/01/15 07:14:34 by serromer         ###   ########.fr       */
+/*   Updated: 2026/01/15 07:29:04 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	rotate(t_stack_node **stack)
 
 void	reverse_rotate(t_stack_node **stack)
 {
-	t_stack_node *last;
+	t_stack_node	*last;
 
 	if (!*stack || !(*stack)->next)
 		return ;

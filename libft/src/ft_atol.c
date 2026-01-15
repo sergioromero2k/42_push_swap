@@ -3,18 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 03:04:15 by sergio-alej       #+#    #+#             */
-/*   Updated: 2025/12/14 03:19:03 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:27:47 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 long	ft_atol(const char *ptr)
 {
-	long result = 0;
-	int sign = 1;
+	long	result;
+	int		sign;
 
+	result = 0;
+	sign = 1;
 	while (*ptr == ' ' || (*ptr >= 9 && *ptr <= 13))
 		ptr++;
 	if (*ptr == '-' || *ptr == '+')

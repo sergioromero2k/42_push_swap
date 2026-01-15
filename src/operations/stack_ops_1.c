@@ -6,7 +6,7 @@
 /*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 07:14:14 by serromer          #+#    #+#             */
-/*   Updated: 2026/01/15 07:14:20 by serromer         ###   ########.fr       */
+/*   Updated: 2026/01/15 07:28:56 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	swap(t_stack_node **stack)
 
 void	push(t_stack_node **dest, t_stack_node **src)
 {
-	t_stack_node *node;
+	t_stack_node	*node;
 
 	if (!*src)
 		return ;

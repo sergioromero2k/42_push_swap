@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:19:35 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 23:20:36 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:28:06 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	push_swap(t_stack_node **a, t_stack_node **b)
 
 	size = get_stack_size(*a);
 	if (size == 2)
-		sa(a,1);
+		sa(a, 1);
 	else if (size == 3)
 		sort_3(a);
 	else

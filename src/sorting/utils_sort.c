@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 04:16:39 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 21:50:26 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:30:43 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void	fill_index(t_stack_node *stack, int *arr, int size)
 
 void	assign_index(t_stack_node *stack, int stack_size)
 {
-	int *arr;
-	int i;
-	t_stack_node *tmp;
+	int				*arr;
+	int				i;
+	t_stack_node	*tmp;
 
 	if (!stack)
 		return ;

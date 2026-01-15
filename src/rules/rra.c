@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rra.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sergio-alejandro <sergio-alejandro@stud    +#+  +:+       +#+        */
+/*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 22:42:42 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/10 22:51:15 by sergio-alej      ###   ########.fr       */
+/*   Updated: 2026/01/15 07:29:11 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rra(t_stack_node **a, int print)
 {
-	reverse_rotate(a); 
+	reverse_rotate(a);
 	if (print)
 		write(1, "rra\n", 4);
 }
