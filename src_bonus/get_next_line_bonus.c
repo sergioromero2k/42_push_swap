@@ -6,7 +6,7 @@
 /*   By: serromer <serromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 23:14:07 by sergio-alej       #+#    #+#             */
-/*   Updated: 2026/01/15 07:33:11 by serromer         ###   ########.fr       */
+/*   Updated: 2026/01/15 07:43:23 by serromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*get_next_line(int fd)
 		line = ft_strjoin_mini(line, buffer);
 		if (buffer == '\n')
 			break ;
+		rd = read(fd, &buffer, 1);
 	}
 	if (rd <= 0 && !line)
 		return (NULL);
