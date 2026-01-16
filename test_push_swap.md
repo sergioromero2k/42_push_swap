@@ -1,4 +1,4 @@
-#  Push_swap Tester - Hoja de pruebas
+#  Push_swap Tester - Hoja de pruebas 1
 
 ## 1. Pruebas de Gestión de Errores
 El programa debe imprimir `Error\n` por stderr (canal 2).
